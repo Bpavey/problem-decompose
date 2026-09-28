@@ -1,10 +1,10 @@
 ---
-name: problem_decompose
+name: problem-decompose
 description: "Turn a problem — a theorem proof, a lemma, a textbook exercise, or a whole book section — into a chain of subproblems the user solves alone; never give solutions. Two modes. PD `启用PD` for one target: 8–14 items, target = last item verbatim, hints only for the 1–2 hardest, book notation/equation numbers/pages preserved. BD `启用BD` + book + section for a whole section: 2–5 major problems in the book's order, ≈3–4 items per printed page, each major problem ends with an assembly item. Use when the user says 启用PD, 启用BD, book_decompose, 拆解, 出成习题, 不要直接给答案, 我想自己做, or asks about a proof without wanting the solution. If the same message also asks a narrow question (why…, what space…, which step…), answer that question directly in 1–2 sentences instead of emitting a chain."
 compatibility: "Optional book-page helper uses poppler-utils (pdftotext, pdftoppm); cropping also needs python3 with Pillow. Everything else needs no environment beyond a workspace."
 ---
 
-# problem_decompose — 问题拆解（小问链）
+# problem-decompose — 问题拆解（小问链）
 
 两种模式：**PD**（单个命题 → 一条链）、**BD**（书上的一节 → 一组习题）。共同点：只出题，不给解。
 
@@ -52,7 +52,7 @@ compatibility: "Optional book-page helper uses poppler-utils (pdftotext, pdftopp
 2. 该书若已被 book-to-skill 转成技能：先读技能里对应章节的文件（母本 `/workspace/<skill>`，副本 `/skills/<skill>`），用它定大题分块、定理与公式编号、假设、术语；够用就直接出题。
 3. 技能不够（公式细节、证明步骤顺序、常数、是否笔误）才查原文，且只查需要的页：
    - `pdftotext -layout -f N -l M` 先看文本层；
-   - 公式糊了或要判笔误 → 渲图看图：`/skills/problem_decompose/scripts/bookpage.sh img <pdf> <pdf-page> [top%] [bottom%]`（300 dpi，可按百分比裁剪）；文本模式 `... text <pdf> <first> [last]`。
+   - 公式糊了或要判笔误 → 渲图看图：`/skills/problem-decompose/scripts/bookpage.sh img <pdf> <pdf-page> [top%] [bottom%]`（300 dpi，可按百分比裁剪）；文本模式 `... text <pdf> <first> [last]`。
    - **PDF 页码 = 印刷页码 + offset**，offset 因书而异，先试后验（GT Ch.7–9 为 +13）。
 4. 新发现的笔误写进题末「勘误」一行，并补进该项目的勘误表。
 5. 不做与出题无关的通读、不逐页 OCR。

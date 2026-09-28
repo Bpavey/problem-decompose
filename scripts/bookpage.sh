@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bookpage.sh — 取书页文本 / 渲图（book_decompose 与 problem_decompose 的取材用）
+# bookpage.sh — 取书页文本 / 渲图（book_decompose 与 problem-decompose 的取材用）
 #
 # 用法:
 #   bookpage.sh text <pdf> <first-page> [last-page]     # 打印这些 PDF 页的文本（保留版式）
